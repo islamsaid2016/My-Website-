@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Department</title>
+    <style>
+       body{
+            width:80%;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Image">
+    </header>
+    <form action="{{ url_for('newDepartment')}}", method="POST">
+        <p>Name:</p>
+        <input type="text" size="30" name="name" placeholder="Enter New Department" required>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>

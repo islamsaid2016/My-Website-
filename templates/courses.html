@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+        <style>
+        body{
+            width: 90%;
+            margin: auto;
+        }
+        .course{
+            padding:10px;
+            margin:10px;
+            max-width:350px;
+            min-height:250px;
+            background-color:#DDD;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Course Photo">
+    </header>
+    <section>
+        <p>
+            Department Name {{department.name}} <br>
+            <a  href="{{url_for('newCourseItem',department_id = department.id)}}">Create New Course Item</a>
+        </p>
+    </section>
+    <section>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="text-align:center"><strong>{{message}}</strong></p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </section>
+
+    {% for item in items %}
+        <section class="course">
+            <p>Name: {{item.name}}</p>
+            <p>Grade: {{item.grade}}</p>
+            <p>Description: {{item.description}}</p>
+            <p>
+                <a  href="{{url_for('editCourseItem',department_id = department.id,course_id=item.id)}}">Edit</a>
+                <a  href="{{url_for('deleteCourseItem',department_id = department.id,course_id=item.id)}}">Delete</a>
+            </p>
+        </section>
+    {% endfor %}
+
+
+</body>
+</html>

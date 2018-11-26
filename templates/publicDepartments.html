@@ -1,0 +1,28 @@
+<html>
+  <head>
+      <title>Home</title>
+      <style>
+         body{
+            width:80%;
+             margin:auto;
+        }
+        header h1{float: left}
+        header a{float: right}
+      </style>
+  </head>
+  <body>
+  <header>
+      <h1>Department and Courses WebSite </h1>
+     <a href="{{url_for('showLogin')}}"> <h1>Login </h1></a>
+  </header>
+    <div style="margin:10px 0">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Image">
+    </div>
+    <section>
+         {% for department in departments %}
+            <h2>{{department.name}} Department</h2>
+         {% endfor %}
+    </section>
+
+  </body>
+</html>

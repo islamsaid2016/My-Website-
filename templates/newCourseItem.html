@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Course</title>
+    <style>
+         body{
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Image">
+    </header>
+    <form action="{{url_for('newCourseItem',department_id=department_id)}} " method="POST">
+    <p>Name:</p>
+        <input type="text" size="30" name="name" required>
+    <p>Grade:</p>
+        <input type="text" size="30" name="grade" required>
+    <p>Description:</p>
+        <input type="text" size="30" name="description" required >
+
+    <input type="submit" value="Create" class="inputButton">
+    <a class="myButton" href="{{
+        url_for('showCourses',department_id=department_id)
+     }} ">Cancel</a>
+</form>
+</body>
+</html>

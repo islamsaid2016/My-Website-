@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Course</title>
+    <style>
+         body{
+            width: 90%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Image">
+    </header>
+    <h1>Are you want to delete <strong>{{item.name}}</strong></h1>
+    <form action="{{url_for('deleteCourseItem',department_id = item.department_id , course_id = item.id)}}" method="POST">
+        <input class="inputButton" type="submit" value="Delete">
+        <a href="{{url_for('showCourses', department_id = item.department_id)}}">Cancel</a>
+    </form>
+
+</body>
+</html>

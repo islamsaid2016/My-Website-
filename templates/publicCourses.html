@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All My Courses</title>
+    <style>
+        body{
+            width: 90%;
+            margin: auto;
+        }
+        .course{
+            padding:10px;
+            margin:10px;
+            max-width:350px;
+            min-height:210px;
+            background-color:#DDD;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Image">
+    </header>
+    <section>
+        <p>Department Name {{department.name}}</p>
+    </section>
+    {% for item in items %}
+        <section class="course">
+            <p>Name: {{item.name}}</p>
+            <p>Grade: {{item.grade}}</p>
+            <p>Description: {{item.description}}</p>
+        </section>
+    {% endfor %}
+
+</body>
+</html>

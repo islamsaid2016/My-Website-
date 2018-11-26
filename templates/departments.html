@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departments</title>
+    <style>
+       body{
+       width:80%;
+        margin:auto;
+        }
+      </style>
+</head>
+<body>
+    <header>
+        <p style="text-align:center;font-weight:bold">Welcome to my Website</p>
+    </header>
+    <div style="margin:10px 0">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Timothy_Dwight_College_courtyard.jpg/1120px-Timothy_Dwight_College_courtyard.jpg" alt="Image">
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="text-align:center"><strong>{{message}}</strong></p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <section>
+        <a href="{{url_for('newDepartment')}}"><h1>Create New Department</h1></a>
+    </section>
+    <section>
+         {% for department in departments %}
+            <h2>{{department.name}} Department</h2>
+            <p>
+                <a href="{{url_for('editDepartment',department_id=department.id)}}">Edit</a>
+                <a href="{{url_for('deleteDepartment',department_id=department.id)}}">Delete</a>
+            </p>
+         {% endfor %}
+    </section>
+
+
+</body>
+</html>
