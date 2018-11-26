@@ -18,8 +18,7 @@ CLIENT_ID = json.loads(open('/var/www/My-Website-/client_secrets.json',
                             'r').read())['web']['client_id']
 APPLICATION_NAME = "DepartmentsCourses"
 
-engine = create_engine('sqlite:///departmentCourses.db',
-                       connect_args={'check_same_thread': False})
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
